@@ -7,16 +7,33 @@ package model;
  */
 public class User {
 	
+	private static int increment;
+	private int userId;
 	private String lastName;
 	private String preposition; //tussenvoegsel
 	private String firstName;
 	private String nickname;
 	private String password;
 
+	
+	public User() {
+		
+	}
+	
 	public User(String lastName, String preposition, String firstName, String nickname, String password) {
 		super();
 		this.lastName = lastName;
 		this.preposition = preposition;
+		this.firstName = firstName;
+		this.nickname = nickname;
+		this.password = password;
+		
+		userId = userId + increment;
+	}
+	
+	public User(String lastName, String firstName, String nickname, String password) {
+		super();
+		this.lastName = lastName;
 		this.firstName = firstName;
 		this.nickname = nickname;
 		this.password = password;

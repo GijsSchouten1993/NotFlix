@@ -4,6 +4,7 @@ import org.glassfish.jersey.server.ResourceConfig;
 @ApplicationPath("api")
 public class MyREST extends ResourceConfig {
  public MyREST() {
- packages("HelloJersey");
+ packages("resources");
+ 
  }
 }

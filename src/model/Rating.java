@@ -5,6 +5,10 @@ public class Rating {
 	private int stars;
 	
 
+	public Rating() {
+		
+	}
+	
 	public Rating(int stars) {
 		
 		assert stars >= 0 : "rating kan niet onder nul zijn";

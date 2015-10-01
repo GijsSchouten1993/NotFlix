@@ -11,17 +11,21 @@ public class Movie {
 	private String director;
 	private String description;
 	
-	public Movie(int numberInternal, String titel, String datePublished, int lengthFilm, String director,
+	public Movie() {
+		
+	}
+	
+	public Movie(int numberIMDB, String titel, String datePublished, int lengthFilm, String director,
 			String description) {
 		super();
-		this.numberInternal = numberInternal;
+		this.numberIMDB = numberIMDB;
 		this.titel = titel;
 		this.datePublished = datePublished;
 		this.lengthFilm = lengthFilm;
 		this.director = director;
 		this.description = description;
 		
-		numberIMDB = numberIMDB + increment;
+		numberInternal = numberInternal + increment;
 	}
 
 	/**
