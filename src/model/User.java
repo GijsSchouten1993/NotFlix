@@ -3,6 +3,7 @@ package model;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 /**
@@ -100,7 +101,7 @@ public class User {
 	 * @return the password
 	 */
 	@XmlTransient
-	@JsonSerialize
+	@JsonIgnore
 	public String getPassword() {
 		return password;
 	}
