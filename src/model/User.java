@@ -1,5 +1,10 @@
 package model;
 
+/**
+ * This class allows you to create a user
+ * @author Alec
+ *
+ */
 public class User {
 	
 	private String lastName;
