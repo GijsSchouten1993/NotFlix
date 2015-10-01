@@ -1,3 +1,4 @@
+package resources;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -7,7 +8,7 @@ import javax.ws.rs.core.MediaType;
 @Path("/hello")
 public class HelloJersey {
 	@GET
-	@Produces({ MediaType.TEXT_PLAIN })
+	@Produces({ MediaType.APPLICATION_JSON })
 	public String sayHello() {
 		return "Hello Jersey";
 	}

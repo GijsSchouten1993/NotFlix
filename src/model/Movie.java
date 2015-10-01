@@ -1,12 +1,14 @@
 package model;
 
+import java.util.Date;
+
 public class Movie {
 	
 	private int numberInternal;
 	private static int increment = 1;
 	private int numberIMDB;
 	private String titel;
-	private String datePublished;
+	private Date datePublished;
 	private int lengthFilm;
 	private String director;
 	private String description;
@@ -15,7 +17,7 @@ public class Movie {
 		
 	}
 	
-	public Movie(int numberIMDB, String titel, String datePublished, int lengthFilm, String director,
+	public Movie(int numberIMDB, String titel, Date datePublished, int lengthFilm, String director,
 			String description) {
 		this.numberIMDB = numberIMDB;
 		this.titel = titel;
@@ -44,14 +46,14 @@ public class Movie {
 	/**
 	 * @return the datePublished
 	 */
-	public String getDatePublished() {
+	public Date getDatePublished() {
 		return datePublished;
 	}
 
 	/**
 	 * @param datePublished the datePublished to set
 	 */
-	public void setDatePublished(String datePublished) {
+	public void setDatePublished(Date datePublished) {
 		this.datePublished = datePublished;
 	}
 
