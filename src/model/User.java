@@ -1,13 +1,19 @@
 package model;
 
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
+
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
 /**
  * This class allows you to create a user
  * @author Alec
  *
  */
+@XmlRootElement
 public class User {
 	
-	private static int increment;
+	private static int increment = 1;
 	private int userId;
 	private String lastName;
 	private String preposition; //tussenvoegsel
@@ -21,7 +27,6 @@ public class User {
 	}
 	
 	public User(String lastName, String preposition, String firstName, String nickname, String password) {
-		super();
 		this.lastName = lastName;
 		this.preposition = preposition;
 		this.firstName = firstName;
@@ -32,11 +37,7 @@ public class User {
 	}
 	
 	public User(String lastName, String firstName, String nickname, String password) {
-		super();
-		this.lastName = lastName;
-		this.firstName = firstName;
-		this.nickname = nickname;
-		this.password = password;
+		this(lastName, "", firstName, nickname, password);
 	}
 
 	/**
@@ -98,6 +99,8 @@ public class User {
 	/**
 	 * @return the password
 	 */
+	@XmlTransient
+	@JsonSerialize
 	public String getPassword() {
 		return password;
 	}
@@ -108,6 +111,22 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+	/**
+	 * @return the userId
+	 */
+	public int getUserId() {
+		return userId;
+	}
+
+	/**
+	 * @param userId the userId to set
+	 */
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+	
+	
 	
 	
 	

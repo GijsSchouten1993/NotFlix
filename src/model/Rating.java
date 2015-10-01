@@ -2,6 +2,8 @@ package model;
 
 public class Rating {
 	
+	private static int increment = 1;
+	private int ratingId;
 	private int stars;
 	
 
@@ -15,6 +17,8 @@ public class Rating {
 		assert stars <= 5 : "rating kan niet hoger zijn dan 5";
 		
 		this.stars = stars;
+		
+		ratingId = ratingId + increment;
 	}
 
 

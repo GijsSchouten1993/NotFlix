@@ -14,7 +14,7 @@ public class UserResource {
 	
 	@GET
 	@Path("{id}")
-	@Produces({MediaType.APPLICATION_XML})
+	@Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
 	public User getUser(@PathParam("id") int id) {
 		return user;
 	}

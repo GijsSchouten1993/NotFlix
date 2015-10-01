@@ -17,7 +17,6 @@ public class Movie {
 	
 	public Movie(int numberIMDB, String titel, String datePublished, int lengthFilm, String director,
 			String description) {
-		super();
 		this.numberIMDB = numberIMDB;
 		this.titel = titel;
 		this.datePublished = datePublished;
