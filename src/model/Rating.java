@@ -4,27 +4,48 @@ public class Rating {
 	
 	private static int increment = 1;
 	private int ratingId;
-	private int stars;
-	
+	private double stars;
+	private int userId;
+	private int movieId;
 
 	public Rating() {
 		
 	}
 	
-	public Rating(User user, Movie movie, int stars) {
-		
-		assert stars >= 0 : "rating kan niet onder nul zijn";
-		assert stars <= 5 : "rating kan niet hoger zijn dan 5";
+	public Rating(int _userId, int _movieId, double stars) {
 		
 		this.stars = stars;
+		this.userId = _userId;
+		this.movieId = _movieId;
 		
-		ratingId = ratingId + increment;
+		this.ratingId = increment++;
+	}
+	
+	public void setStars(double stars) {
+		this.stars = stars;
 	}
 
+	public void setMovieId(int movieId) {
+		this.movieId = movieId;
+	}
 
+	public int getRatingId() {
+		return ratingId;
+	}
 
-	public int getStars() {
+	public int getUserId() {
+		return userId;
+	}
+
+	public int getMovieId() {
+		return movieId;
+	}
+
+	public double getStars() {
 		return stars;
 	}
 
+	public void setRatingId() {
+		this.ratingId = increment++;
+	}
 }
