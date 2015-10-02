@@ -34,7 +34,7 @@ public class User {
 		this.nickname = nickname;
 		this.password = password;
 		
-		userId = userId + increment;
+		this.userId = increment++;
 	}
 	
 	public User(String lastName, String firstName, String nickname, String password) {
@@ -123,8 +123,8 @@ public class User {
 	/**
 	 * @param userId the userId to set
 	 */
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setUserId() {
+		this.userId = increment++;
 	}
 	
 	
