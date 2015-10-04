@@ -127,10 +127,4 @@ public class User {
 		this.userId = increment++;
 	}
 	
-	
-	
-	
-	
-	
-
 }

@@ -1,5 +1,8 @@
 package model;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Rating {
 	
 	private static int increment = 1;
@@ -29,8 +32,13 @@ public class Rating {
 		this.movieId = movieId;
 	}
 
+
 	public int getRatingId() {
 		return ratingId;
+	}
+
+	public double getStars() {
+		return stars;
 	}
 
 	public int getUserId() {
@@ -39,10 +47,6 @@ public class Rating {
 
 	public int getMovieId() {
 		return movieId;
-	}
-
-	public double getStars() {
-		return stars;
 	}
 
 	public void setRatingId() {
