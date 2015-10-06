@@ -40,7 +40,7 @@ public class UserResource {
 
 		// Haal het model op en return de gebruiker met het juiste ID
 		Model mod = (Model) context.getAttribute("model");
-		CheckAuthorizationWithUserId(id, _token, mod);	
+		mod.CheckAuthorizationWithUserId(id, _token, mod);	
 		return mod.GetUserById(id);
 	}
 
@@ -49,7 +49,7 @@ public class UserResource {
 	public ArrayList<User> getUsers( @HeaderParam("token") String _token) {
 		// Haal het model op en return alle gebruikers
 		Model mod = (Model) context.getAttribute("model");
-		CheckAuthorization(_token,mod);
+		mod.CheckAuthorization(_token,mod);
 		return mod.GetUsers();
 	}
 
@@ -76,7 +76,7 @@ public class UserResource {
 		try {
 		// Haal het model op en verkrijg alle ratings van een gebruiker
 		Model mod = (Model) context.getAttribute("model");
-		CheckAuthorizationWithUserId(id, _token, mod);
+		mod.CheckAuthorizationWithUserId(id, _token, mod);
 		return (mod.GetAllRatingsForUser(id));
 		} catch (Exception ex) {
 			throw new ResponseWithException(ex.getMessage(),Response.Status.BAD_REQUEST);
@@ -94,7 +94,7 @@ public class UserResource {
 		try {
 			// Haal het model op en voeg een nieuwe rating toe
 			Model mod = (Model) context.getAttribute("model");
-			CheckAuthorizationWithUserId(id, _token, mod);	
+			mod.CheckAuthorizationWithUserId(id, _token, mod);	
 			int ratingId = mod.AddNewRating(rating);
 			return ratingId;
 		} catch (Exception ex) {
@@ -113,7 +113,7 @@ public class UserResource {
 		try {
 			// Haal het model op en wijzig een rating
 			Model mod = (Model) context.getAttribute("model");
-			CheckAuthorizationWithUserId(id, _token, mod);	
+			mod.CheckAuthorizationWithUserId(id, _token, mod);	
 			return mod.UpdateRating(rating);
 		} catch (Exception ex) {
 			throw new ResponseWithException(ex.getMessage(),Response.Status.BAD_REQUEST);
@@ -131,31 +131,13 @@ public class UserResource {
 		try {
 			// Haal het model op en wijzig een rating
 			Model mod = (Model) context.getAttribute("model");
-			CheckAuthorizationWithUserId(id, _token, mod);	
+			mod.CheckAuthorizationWithUserId(id, _token, mod);	
 			return mod.DeleteRating(ratingsid);
 		} catch (Exception ex) {
 			throw new ResponseWithException(ex.getMessage(),Response.Status.BAD_REQUEST);
 		}
 	}
 	
-	//Check of het request het token bevat en de gebruikerID in de url overeenkomt met het token
-	private void CheckAuthorizationWithUserId(int id, String _token, Model mod) {
-		Token tok = mod.CheckIfTokenExists(_token);
-		if(tok == null)
-			throw new ResponseWithException("Geen geldige token gevonden, vul het token in de custom header 'token'",Response.Status.UNAUTHORIZED);
-		
-		if(tok.getUserId() != id)
-		{
-			throw new ResponseWithException("U heeft onvoldoende rechten voor dit eindpunt",Response.Status.BAD_REQUEST);
-		}
-	}
 	
-	//Check of het request een geldig token bevat
-	private void CheckAuthorization(String _token, Model mod)
-	{
-		Token tok = mod.CheckIfTokenExists(_token);
-		if(tok == null)
-			throw new ResponseWithException("Geen geldige token gevonden, vul het token in de custom header 'token'",Response.Status.UNAUTHORIZED);
-	}
 
 }

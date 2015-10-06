@@ -5,6 +5,8 @@ import java.util.Date;
 import java.util.Random;
 import java.util.UUID;
 
+import javax.ws.rs.core.Response;
+
 public class Model {
 
 	private ArrayList<Movie> movies = new ArrayList();
@@ -189,5 +191,25 @@ public class Model {
 		
 		return tokenValue;
 	}
+	
+	//Check of het request het token bevat en de gebruikerID in de url overeenkomt met het token
+		public void CheckAuthorizationWithUserId(int id, String _token, Model mod) {
+			Token tok = mod.CheckIfTokenExists(_token);
+			if(tok == null)
+				throw new ResponseWithException("Geen geldige token gevonden, vul het token in de custom header 'token'",Response.Status.UNAUTHORIZED);
+			
+			if(tok.getUserId() != id)
+			{
+				throw new ResponseWithException("U heeft onvoldoende rechten voor dit eindpunt",Response.Status.BAD_REQUEST);
+			}
+		}
+		
+		//Check of het request een geldig token bevat
+		public void CheckAuthorization(String _token, Model mod)
+		{
+			Token tok = mod.CheckIfTokenExists(_token);
+			if(tok == null)
+				throw new ResponseWithException("Geen geldige token gevonden, vul het token in de custom header 'token'",Response.Status.UNAUTHORIZED);
+		}
 
 }
