@@ -33,6 +33,12 @@ public class UserResource {
 	@Context
 	ServletContext context;
 
+	/**
+	 * Haalt een user op op basis van id.
+	 * @param id het id waarop gezocht moet worden
+	 * @param _token voor beveiliging
+	 * @return een user met een bepaald id
+	 */
 	@GET
 	@Path("{id}")
 	@Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
@@ -44,6 +50,11 @@ public class UserResource {
 		return mod.GetUserById(id);
 	}
 
+	/**
+	 * Haalt alle users op.
+	 * @param _token voor identificatie
+	 * @return alle users
+	 */
 	@GET
 	@Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
 	public ArrayList<User> getUsers( @HeaderParam("token") String _token) {
@@ -53,6 +64,11 @@ public class UserResource {
 		return mod.GetUsers();
 	}
 
+	/**
+	 * Maakt een nieuwe gebruiker aan.
+	 * @param user de user die moet worden toegevoegd
+	 * @return een userId
+	 */
 	@POST
 	@Consumes({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
 	@Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
@@ -68,6 +84,12 @@ public class UserResource {
 		}
 	}
 
+	/**
+	 * Haalt de ratings van een bepaalde user op.
+	 * @param id het Id van de user
+	 * @param _token voor identificatie
+	 * @return een lijst met ratings van een bepaalde user
+	 */
 	@GET
 	@Path("{id}/ratings")
 	@Consumes({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
@@ -82,7 +104,14 @@ public class UserResource {
 			throw new ResponseWithException(ex.getMessage(),Response.Status.BAD_REQUEST);
 		}
 	}
-
+	
+	/**
+	 * Zorgt ervoor dat een user een rating kan toevoegen.
+	 * @param id het id van de user
+	 * @param rating de rating die de user toegevoegd wilt hebben
+	 * @param _token voor identificatie
+	 * @return het ratingId
+	 */
 	@POST
 	@Path("{id}/ratings")
 	@Consumes({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
@@ -102,6 +131,13 @@ public class UserResource {
 		}
 	}
 	
+	/**
+	 * Zorgt ervoor dat een user een rating kan wijzigen
+	 * @param id het id van de user
+	 * @param rating de rating die de user gewijzigd wilt hebben
+	 * @param _token
+	 * @return
+	 */
 	@PUT
 	@Path("{id}/ratings")
 	@Consumes({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })

@@ -1,5 +1,7 @@
 package model;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 public class Movie {
@@ -8,7 +10,7 @@ public class Movie {
 	private static int increment = 1;
 	private int numberIMDB;
 	private String titel;
-	private Date datePublished;
+	private String datePublished;
 	private int lengthFilm;
 	private String director;
 	private String description;
@@ -21,12 +23,27 @@ public class Movie {
 			String description) {
 		this.numberIMDB = numberIMDB;
 		this.titel = titel;
-		this.datePublished = datePublished;
+		
+		String date = makeCurrentDate(datePublished);
+		
+		this.datePublished = date;
 		this.lengthFilm = lengthFilm;
 		this.director = director;
 		this.description = description;
 		
-		numberInternal = numberInternal + increment;
+		this.numberInternal = increment++;
+	}
+	
+	/**
+	 * Converts a Date object into a string and returns the current date and time
+	 * @param date The date you want to convert
+	 * @return returns The current date as a string
+	 */
+	private String makeCurrentDate(Date date) {
+		SimpleDateFormat ft = 
+				new SimpleDateFormat ("E yyyy.MM.dd 'at' hh:mm:ss a zzz");
+		String d = ft.format(date);
+		return d;
 	}
 
 	/**
@@ -46,14 +63,14 @@ public class Movie {
 	/**
 	 * @return the datePublished
 	 */
-	public Date getDatePublished() {
+	public String getDatePublished() {
 		return datePublished;
 	}
 
 	/**
 	 * @param datePublished the datePublished to set
 	 */
-	public void setDatePublished(Date datePublished) {
+	public void setDatePublished(String datePublished) {
 		this.datePublished = datePublished;
 	}
 
@@ -98,6 +115,15 @@ public class Movie {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
+	/**
+	 * @return the numberInternal
+	 */
+	public int getNumberInternal() {
+		return numberInternal;
+	}
+	
+	
 	
 	
 	

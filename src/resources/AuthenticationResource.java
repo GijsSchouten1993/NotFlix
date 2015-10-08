@@ -26,7 +26,7 @@ public class AuthenticationResource {
 	@Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
 	public String getNewToken(Userlogin login) {
 		try {
-			// Haal het model op en geneer nieuw token
+			// Haal het model op en genereer nieuw token
 			Model mod = (Model) context.getAttribute("model");
 			return mod.GetNewToken(login);
 		} catch (Exception ex) {

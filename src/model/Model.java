@@ -20,6 +20,9 @@ public class Model {
 
 		Movie movie2 = new Movie(1001, "Star wars", new Date(), 150, "George Lucs", "Star wars Episode 9");
 		movies.add(movie2);
+		
+		Movie movie3 = new Movie(1002, "Black Mass", new Date(), 140, "Waschowski siblings", "Depp owns");
+		movies.add(movie3);
 
 		// Gijs gebruiker
 		User usr = new User("Schouten", "Gijs", "test", "test");
@@ -34,7 +37,34 @@ public class Model {
 		
 		Rating rat2 = new Rating(1, 2, 4);
 		ratings.add(rat2);
+		
+		Rating rat3 = new Rating(2, 1, 2);
+		ratings.add(rat3);
+		
+		Rating rat4 = new Rating(2, 2, 1);
+		ratings.add(rat4);
 	}
+	
+	public ArrayList<MovieAverage> getAverageRating() {
+		ArrayList<MovieAverage> averages = new ArrayList<MovieAverage>();
+		
+		for (Movie movie : movies) {
+			ArrayList<Rating> ratingsPerMovie = getAllRatingsForMovie(movie.getNumberInternal()); 
+			
+			if (ratingsPerMovie.size() > 0) {
+				double total = 0;
+				for (Rating rating : ratingsPerMovie) {
+					total += rating.getStars();
+				}
+				double average = total / ratingsPerMovie.size();
+				averages.add(new MovieAverage(movie.getNumberInternal(), average));
+			}
+			
+		}
+		return averages;
+
+	}
+	
 
 	// Haal gebruiker op obv ID
 	public User GetUserById(int ID) {
@@ -44,6 +74,26 @@ public class Model {
 			}
 		}
 		return null;
+	}
+	
+	public Movie getMovieById(int id) {
+		for (Movie movie : movies) {
+			if (movie.getNumberInternal() == id) {
+				return movie;
+			}
+		}
+		return null;
+	}
+	
+	//geeft film terug op basis van titel
+	public ArrayList<Movie> getMoviesByTitle(String title) throws Exception {
+		ArrayList<Movie> moviess = new ArrayList<>();
+		for (Movie movie : movies) {
+			if (movie.getTitel().toLowerCase().contains(title.toLowerCase())) {
+				moviess.add(movie);
+			}
+		}		
+		return moviess;
 	}
 
 	// Voeg een nieuwe gebruiker toe
@@ -57,10 +107,7 @@ public class Model {
 		return user.getUserId();
 	}
 
-	// Verkijg alle gebruikers
-	public ArrayList<User> GetUsers() {
-		return this.users;
-	}
+
 	
 	//Kijk of een gebruikersnaam al voorkomt
 	public boolean CheckIfNicknameAlreadyExists(User _user) {
@@ -120,6 +167,16 @@ public class Model {
 		for (Rating rat : this.ratings) {
 			if (rat.getUserId() == _userId) {
 				ratingsToReturn.add(rat);
+			}
+		}
+		return ratingsToReturn;
+	}
+	
+	public ArrayList<Rating> getAllRatingsForMovie(int movieId) {
+		ArrayList<Rating> ratingsToReturn = new ArrayList<Rating>();
+		for (Rating rating : ratings) {
+			if (rating.getMovieId() == movieId) {
+				ratingsToReturn.add(rating);
 			}
 		}
 		return ratingsToReturn;
@@ -211,5 +268,35 @@ public class Model {
 			if(tok == null)
 				throw new ResponseWithException("Geen geldige token gevonden, vul het token in de custom header 'token'",Response.Status.UNAUTHORIZED);
 		}
+		
+		// Verkijg alle gebruikers
+		public ArrayList<User> GetUsers() {
+			return this.users;
+		}
+
+		/**
+		 * @return the movies
+		 */
+		public ArrayList<Movie> getMovies() {
+			return movies;
+		}
+
+		/**
+		 * @return the ratings
+		 */
+		public ArrayList<Rating> getRatings() {
+			return ratings;
+		}
+
+		/**
+		 * @return the tokens
+		 */
+		public ArrayList<Token> getTokens() {
+			return tokens;
+		}
+		
+		
+		
+		
 
 }
