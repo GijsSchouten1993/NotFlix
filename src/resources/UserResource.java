@@ -135,8 +135,8 @@ public class UserResource {
 	 * Zorgt ervoor dat een user een rating kan wijzigen
 	 * @param id het id van de user
 	 * @param rating de rating die de user gewijzigd wilt hebben
-	 * @param _token
-	 * @return
+	 * @param _token voor identificatie
+	 * @return true als rating gewijzigd is en false als die niet gewijzigd is
 	 */
 	@PUT
 	@Path("{id}/ratings")
@@ -156,6 +156,13 @@ public class UserResource {
 		}
 	}
 	
+	/**
+	 * Zorgt ervoor dat een user een rating kan verwijderen.
+	 * @param id id het id van de user
+	 * @param ratingsid het ratingId van de rating die verwijderd moet worden
+	 * @param _token voor identificatie
+	 * @return true als rating verwijderd is en false als die niet verwijderd is
+	 */
 	@DELETE
 	@Path("{id}/ratings/{ratingsid}")
 	@Consumes({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })

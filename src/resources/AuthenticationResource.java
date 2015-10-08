@@ -13,6 +13,7 @@ import javax.ws.rs.core.Response;
 
 import model.Model;
 import model.ResponseWithException;
+import model.Token;
 import model.User;
 import model.Userlogin;
 
@@ -21,10 +22,15 @@ public class AuthenticationResource {
 	@Context
 	ServletContext context;
 
+	/**
+	 * Zorgt ervoor dat een nieuwe token gegenereert kan worden
+	 * @param login de nickname en het password dat gecontroleerd wordt
+	 * @return een Token met het gegenereerde token en userId
+	 */
 	@POST
 	@Consumes({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
 	@Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
-	public String getNewToken(Userlogin login) {
+	public Token getNewToken(Userlogin login) {
 		try {
 			// Haal het model op en genereer nieuw token
 			Model mod = (Model) context.getAttribute("model");
