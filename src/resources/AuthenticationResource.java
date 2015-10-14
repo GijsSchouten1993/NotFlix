@@ -29,7 +29,7 @@ public class AuthenticationResource {
 	 */
 	@POST
 	@Consumes({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
-	@Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
+	@Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON,MediaType.APPLICATION_FORM_URLENCODED })
 	public Token getNewToken(Userlogin login) {
 		try {
 			// Haal het model op en genereer nieuw token

@@ -334,11 +334,12 @@ public class Model {
 	 * Delete een rating
 	 * @param ratingsId het id van de rating die gedelete moet worden
 	 * @return true als rating gedelete is en false zo niet
+	 * @throws Exception 
 	 */
-	public boolean DeleteRating(int ratingsId) {
+	public boolean DeleteRating(int ratingsId) throws Exception {
 		Rating rat = this.GetRatingById(ratingsId);
 		if (rat == null) {
-			return false;
+			throw new Exception("Rating bestaat niet in het systeem");
 		}
 		this.ratings.remove(rat);
 		return true;
