@@ -1,5 +1,12 @@
 package resources;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+
 import javax.servlet.ServletContext;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -34,7 +41,9 @@ public class AuthenticationResource {
 		try {
 			// Haal het model op en genereer nieuw token
 			Model mod = (Model) context.getAttribute("model");
-			return mod.GetNewToken(login);
+			Token tokkie = mod.GetNewToken(login);
+			
+			return tokkie;
 		} catch (Exception ex) {
 			throw new ResponseWithException(ex.getMessage(),Response.Status.BAD_REQUEST);
 		}
