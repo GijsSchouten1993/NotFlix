@@ -17,7 +17,7 @@ import javax.ws.rs.core.Response;
 
 public class Model {
 
-	private ArrayList<Movie> movies = new ArrayList();
+	public ArrayList<Movie> movies = new ArrayList<>();
 	private ArrayList<User> users = new ArrayList();
 	private ArrayList<Rating> ratings = new ArrayList();
 	private ArrayList<Token> tokens = new ArrayList();

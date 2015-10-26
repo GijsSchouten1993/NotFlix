@@ -53,14 +53,13 @@ public class MovieResource {
 	 */	
 	@GET
 	@Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-	public ArrayList<Movie> getMovies(@HeaderParam ("token") String token) {
+	public ArrayList<Movie> getMovies() {
 		try{
 			//haal het model op en verkrijg alle movies
 			Model model = (Model) context.getAttribute("model");
-			model.CheckAuthorization(token, model);
 			return model.getMovies();
 		} catch (Exception ex) {
-			throw new ResponseWithException(ex.getMessage(),Response.Status.BAD_REQUEST);
+ 			throw new ResponseWithException(ex.getMessage(),Response.Status.BAD_REQUEST);
 		}
 	}
 	
@@ -92,10 +91,11 @@ public class MovieResource {
 	@GET
 	@Path("/ratings")
 	@Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-	public ArrayList<MovieAverage> getMovieRatings() {
+	public ArrayList<MovieAverage> getMovieRatings(@HeaderParam ("token") String token) {
 		try{
 			//haal het model op en verkrijg all ratings van een movie
 			Model model = (Model) context.getAttribute("model");
+			model.CheckAuthorization(token, model);
 			return model.getAverageRating();
 		} catch (Exception ex) {
 			throw new ResponseWithException(ex.getMessage(),Response.Status.BAD_REQUEST);

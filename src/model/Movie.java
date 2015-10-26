@@ -123,6 +123,13 @@ public class Movie {
 		return numberInternal;
 	}
 	
+	/**
+	 * @return the titel
+	 */
+	public int getNumberIMDB() {
+		return numberIMDB;
+	}
+	
 	
 	
 	

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Notflix</title>
+<link rel="stylesheet" href="./css/bootstrap.css">
+</head>
+<body>
+
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">Brand</a>
+			</div>
+
+			<div class="collapse navbar-collapse"
+				id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
+					<li><a href="#">Movies</a></li>
+					<li><a href="#">Ratings</a></li>
+
+				</ul>
+				<form class="navbar-form navbar-right" id="loginForm">
+					<div class="form-group">
+						<input type="text" class="form-control"
+							placeholder="Gebruikersnaam" id="nickname"> <input
+							type="text" class="form-control" placeholder="Wachtwoord"
+							id="password">
+					</div>
+					<button id="btnLogin" type="submit" class="btn btn-success">Inloggen</button>
+				</form>
+			</div>
+		</div>
+	</nav>
+	<form class="form-vertical">
+  <fieldset>
+    <legend>Legend</legend>
+    <div class="form-group">
+      <label for="inputEmail" class="col-lg-2 control-label">Email</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" id="inputEmail" placeholder="Email">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputPassword" class="col-lg-2 control-label">Password</label>
+      <div class="col-lg-10">
+        <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+        <div class="checkbox">
+          <label>
+            <input type="checkbox"> Checkbox
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="textArea" class="col-lg-2 control-label">Textarea</label>
+      <div class="col-lg-10">
+        <textarea class="form-control" rows="3" id="textArea"></textarea>
+        <span class="help-block">A longer block of help text that breaks onto a new line and may extend beyond one line.</span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-lg-2 control-label">Radios</label>
+      <div class="col-lg-10">
+        <div class="radio">
+          <label>
+            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
+            Option one is this
+          </label>
+        </div>
+        <div class="radio">
+          <label>
+            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+            Option two can be something else
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="select" class="col-lg-2 control-label">Selects</label>
+      <div class="col-lg-10">
+        <select class="form-control" id="select">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+        <br>
+        <select multiple="" class="form-control">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-lg-10 col-lg-offset-2">
+        <button type="reset" class="btn btn-default">Cancel</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </fieldset>
+</form>
+	<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script src="./js/bootstrap.min.js"></script>
+	<script>
+		(function() {
+			var flickerAPI = "http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
+			$.getJSON(flickerAPI, {
+				tags : "mount rainier",
+				tagmode : "any",
+				format : "json"
+			}).done(function(data) {
+				$.each(data.items, function(i, item) {
+					$("<img>").attr("src", item.media.m).appendTo("#images");
+					if (i === 3) {
+						return false;
+					}
+				});
+			});
+		})();
+
+		//Inloggen en token ophalen en opslaan in Localstorage
+		$('#loginForm').submit(function(event) {
+			// stop the form from submitting the normal way and refreshing the page
+			event.preventDefault();
+			console.log('test');
+
+			var fo mData = {
+				'nickname' : $('#nickname').val(),
+				'password' : $('#password').val(),
+			};
+			console.log(formData);
+
+			$.ajax({
+				type : 'POST',
+				url : "http://localhost:8080/Notflix/api/authenticate",
+				data : formData,
+				dataType : 'json',
+				encode : true
+			})
+
+			.done(function(data) {
+
+				// log data to the console so we can see
+				console.log(data);
+
+			});
+
+		});
+	</script>
+
+</body>
+</html>

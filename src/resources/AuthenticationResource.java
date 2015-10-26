@@ -35,8 +35,8 @@ public class AuthenticationResource {
 	 * @return een Token met het gegenereerde token en userId
 	 */
 	@POST
-	@Consumes({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
-	@Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON,MediaType.APPLICATION_FORM_URLENCODED })
+	@Consumes({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON, MediaType.APPLICATION_FORM_URLENCODED , "application/x-www-form-urlencoded"})
+	@Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON, MediaType.APPLICATION_FORM_URLENCODED , "application/x-www-form-urlencoded"})
 	public Token getNewToken(Userlogin login) {
 		try {
 			// Haal het model op en genereer nieuw token
