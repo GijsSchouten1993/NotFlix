@@ -4,12 +4,15 @@ function loginProcess() {
 		$("#loginForm").addClass("hide");
 		$("#btnRatings").removeClass("hide");
 		$("#btnLogOut").removeClass("hide");
+		$("#btnUsers").removeClass("hide");
 		
 
 	} else {
 		$("#btnLogOut").addClass("hide");
 		$("#loginForm").removeClass("hide");
 		$("#btnRatings").addClass("hide");
+		$("#btnUsers").addClass("hide");
+		
 	}
 }
 
