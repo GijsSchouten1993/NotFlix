@@ -23,7 +23,7 @@ public class Model {
 	private ArrayList<Token> tokens = new ArrayList();
 	public InputStream is;
 	public Model() {
-		Movie mov = new Movie("tt2379713", "Spectre", new Date(), 120, "Blake fjf", "James bond 007");
+		Movie mov = new Movie("tt2379713", "Spectre", new Date(), 120, "Blake fjf", "A cryptic message from Bond's past sends him on a trail to uncover a sinister organization. While M battles political forces to keep the secret service alive, Bond peels back the layers of deceit to reveal the terrible truth behind SPECTRE.");
 		movies.add(mov);
 
 		Movie movie2 = new Movie("tt2488496", "Star wars", new Date(), 150, "George Lucs", "Star wars Episode 9");
