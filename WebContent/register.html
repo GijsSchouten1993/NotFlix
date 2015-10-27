@@ -130,34 +130,7 @@
 			});
 		})();
 
-		//Inloggen en token ophalen en opslaan in Localstorage
-		$('#loginForm').submit(function(event) {
-			// stop the form from submitting the normal way and refreshing the page
-			event.preventDefault();
-			console.log('test');
-
-			var fo mData = {
-				'nickname' : $('#nickname').val(),
-				'password' : $('#password').val(),
-			};
-			console.log(formData);
-
-			$.ajax({
-				type : 'POST',
-				url : "http://localhost:8080/Notflix/api/authenticate",
-				data : formData,
-				dataType : 'json',
-				encode : true
-			})
-
-			.done(function(data) {
-
-				// log data to the console so we can see
-				console.log(data);
-
-			});
-
-		});
+		
 	</script>
 
 </body>

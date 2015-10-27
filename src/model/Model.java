@@ -23,50 +23,50 @@ public class Model {
 	private ArrayList<Token> tokens = new ArrayList();
 	public InputStream is;
 	public Model() {
-		Movie mov = new Movie(1000, "Spectre", new Date(), 120, "Blake fjf", "James bond 007");
+		Movie mov = new Movie("tt2379713", "Spectre", new Date(), 120, "Blake fjf", "James bond 007");
 		movies.add(mov);
 
-		Movie movie2 = new Movie(1001, "Star wars", new Date(), 150, "George Lucs", "Star wars Episode 9");
+		Movie movie2 = new Movie("tt2488496", "Star wars", new Date(), 150, "George Lucs", "Star wars Episode 9");
 		movies.add(movie2);
 
-		Movie movie3 = new Movie(1002, "Black Mass", new Date(), 140, "Waschowski siblings", "Depp owns");
+		Movie movie3 = new Movie("tt1355683", "Black Mass", new Date(), 140, "Waschowski siblings", "Depp owns");
 		movies.add(movie3);
 
-		Movie movie4 = new Movie(1000, "The Martian", new Date(), 120, "Blake fjf", "James bond 007");
+		Movie movie4 = new Movie("tt3659388", "The Martian", new Date(), 120, "Blake fjf", "James bond 007");
 		movies.add(movie4);
 
-		Movie movie5 = new Movie(1001, "Bourne Identity", new Date(), 150, "George Lucs", "Star wars Episode 9");
+		Movie movie5 = new Movie("tt0258463", "Bourne Identity", new Date(), 150, "Doug Liman", "Star wars Episode 9");
 		movies.add(movie5);
 
-		Movie movie6 = new Movie(1002, "Bourne Supremacy", new Date(), 140, "Waschowski siblings", "Depp owns");
+		Movie movie6 = new Movie("tt0372183", "Bourne Supremacy", new Date(), 140, "Waschowski siblings", "Depp owns");
 		movies.add(movie6);
 
-		Movie movie7 = new Movie(1000, "Bourne Ultimatum", new Date(), 120, "Blake fjf", "James bond 007");
+		Movie movie7 = new Movie("tt0440963", "Bourne Ultimatum", new Date(), 120, "Blake fjf", "James bond 007");
 		movies.add(movie7);
 
-		Movie movie8 = new Movie(1001, "The Raid: redemption", new Date(), 150, "George Lucs", "Star wars Episode 9");
+		Movie movie8 = new Movie("tt1899353", "The Raid: redemption", new Date(), 150, "George Lucs", "Star wars Episode 9");
 		movies.add(movie8);
 
-		Movie movie9 = new Movie(1002, "The raid 2", new Date(), 140, "Waschowski siblings", "Depp owns");
+		Movie movie9 = new Movie("tt2265171", "The raid 2", new Date(), 140, "Waschowski siblings", "Depp owns");
 		movies.add(movie9);
 
-		Movie movie10 = new Movie(1000, "Underworld", new Date(), 120, "Blake fjf", "James bond 007");
+		Movie movie10 = new Movie("tt0320691", "Underworld", new Date(), 120, "Blake fjf", "James bond 007");
 		movies.add(movie10);
 
-		Movie movie11 = new Movie(1001, "The Incredibles", new Date(), 150, "George Lucs", "Star wars Episode 9");
+		Movie movie11 = new Movie("tt0317705", "The Incredibles", new Date(), 150, "George Lucs", "Star wars Episode 9");
 		movies.add(movie11);
 
-		Movie movie12 = new Movie(1002, "Fantastic four", new Date(), 140, "Waschowski siblings", "Depp owns");
+		Movie movie12 = new Movie("tt1502712", "Fantastic four", new Date(), 140, "Waschowski siblings", "Depp owns");
 		movies.add(movie12);
 
-		Movie movie13 = new Movie(1000, "The Avengers", new Date(), 120, "Blake fjf", "James bond 007");
+		Movie movie13 = new Movie("tt0848228", "The Avengers", new Date(), 120, "Blake fjf", "James bond 007");
 		movies.add(movie13);
 
-		Movie movie14 = new Movie(1001, "Avengers: Age of Ultron", new Date(), 150, "George Lucs",
+		Movie movie14 = new Movie("tt2395427", "Avengers: Age of Ultron", new Date(), 150, "George Lucs",
 				"Star wars Episode 9");
 		movies.add(movie14);
 
-		Movie movie15 = new Movie(1002, "The Rock", new Date(), 140, "Waschowski siblings", "Depp owns");
+		Movie movie15 = new Movie("", "The Rock", new Date(), 140, "Waschowski siblings", "Depp owns");
 		movies.add(movie15);
 
 		// Gijs gebruiker

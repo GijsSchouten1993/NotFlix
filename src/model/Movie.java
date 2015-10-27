@@ -8,7 +8,7 @@ public class Movie {
 	
 	private int numberInternal;
 	private static int increment = 1;
-	private int numberIMDB;
+	private String numberIMDB;
 	private String titel;
 	private String datePublished;
 	private int lengthFilm;
@@ -19,7 +19,7 @@ public class Movie {
 		
 	}
 	
-	public Movie(int numberIMDB, String titel, Date datePublished, int lengthFilm, String director,
+	public Movie(String numberIMDB, String titel, Date datePublished, int lengthFilm, String director,
 			String description) {
 		this.numberIMDB = numberIMDB;
 		this.titel = titel;
@@ -126,9 +126,10 @@ public class Movie {
 	/**
 	 * @return the titel
 	 */
-	public int getNumberIMDB() {
+	public String getNumberIMDB() {
 		return numberIMDB;
 	}
+	
 	
 	
 	

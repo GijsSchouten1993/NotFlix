@@ -2,11 +2,22 @@ function loginProcess() {
 	var token = localStorage.getItem('token');
 	if ((typeof (token) !== 'undefined') && (token !== null)) {
 		$("#loginForm").addClass("hide");
+		$("#btnRatings").removeClass("hide");
 		$("#btnLogOut").removeClass("hide");
+		
 
 	} else {
 		$("#btnLogOut").addClass("hide");
 		$("#loginForm").removeClass("hide");
+		$("#btnRatings").addClass("hide");
+	}
+}
+
+function checkIfLoggedIn()
+{
+	var token = localStorage.getItem('token');
+	if ((typeof (token) === 'undefined') || (token === null)) {
+		window.location.replace("/Notflix");
 	}
 }
 
@@ -42,3 +53,11 @@ $('#loginForm').submit(function(event) {
 	});
 
 });
+
+function getParameterByName(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);
+    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+
