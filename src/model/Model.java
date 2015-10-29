@@ -18,9 +18,9 @@ import javax.ws.rs.core.Response;
 public class Model {
 
 	public ArrayList<Movie> movies = new ArrayList<>();
-	private ArrayList<User> users = new ArrayList();
-	private ArrayList<Rating> ratings = new ArrayList();
-	private ArrayList<Token> tokens = new ArrayList();
+	private ArrayList<User> users = new ArrayList<>();
+	private ArrayList<Rating> ratings = new ArrayList<>();
+	private ArrayList<Token> tokens = new ArrayList<>();
 	public InputStream is;
 	public Model() {
 		Movie mov = new Movie("tt2379713", "Spectre", new Date(), 120, "Blake fjf", "A cryptic message from Bond's past sends him on a trail to uncover a sinister organization. While M battles political forces to keep the secret service alive, Bond peels back the layers of deceit to reveal the terrible truth behind SPECTRE.");

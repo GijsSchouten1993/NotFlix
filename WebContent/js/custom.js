@@ -57,6 +57,19 @@ $('#loginForm').submit(function(event) {
 
 });
 
+function removeRating(userId, ratingId) {
+//	$.ajax({
+//		type : 'DELETE',
+//		url : "http://localhost:8080/Notflix/api/users/" + userId + "/ratings/" + ratingId,
+//		succes : function(result) {
+//			
+//		}
+//	});
+	
+	console.log(userId + " " + ratingId);
+
+}
+
 function getParameterByName(name) {
     name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
     var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),

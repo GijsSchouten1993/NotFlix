@@ -46,7 +46,7 @@ public class UserResource {
 
 		// Haal het model op en return de gebruiker met het juiste ID
 		Model mod = (Model) context.getAttribute("model");
-		mod.CheckAuthorizationWithUserId(id, _token, mod);	
+	
 		return mod.GetUserById(id);
 	}
 

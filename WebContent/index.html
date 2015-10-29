@@ -18,7 +18,7 @@
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="/Notflix">Home</a></li>
 					<li><a href="#">Movies</a></li>
-					<li><a href="#" id="btnRatings" class="hide">Ratings</a></li>
+					<li><a href="ratings.html" id="btnRatings" class="hide">Ratings</a></li>
 					<li><a href="users.html" id="btnUsers" class="hide">Users</a></li>
 				</ul>
 				<form class="navbar-form navbar-right" id="loginForm">
@@ -86,6 +86,7 @@
 								$.each(
 												data,
 												function(i, item) {
+													console.log(item.numberIMDB)
 													$("#pnlMovies")
 															.append(
 																	"<div class='col-sm-2 col-md-2'><a href='/Notflix/showmovie.html?movieid="

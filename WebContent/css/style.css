@@ -1,3 +1,11 @@
 .panel {padding-top: 30px;
 		padding-bottom: 30px;
 }
+
+#userInfo {
+	color:cyan;
+}
+
+#deleteButton {
+	color: black;
+}
