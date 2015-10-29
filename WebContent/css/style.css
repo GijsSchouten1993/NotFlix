@@ -9,3 +9,12 @@
 #deleteButton {
 	color: black;
 }
+
+.center {
+     float: none;
+     margin-left: auto;
+     margin-right: auto;
+}
+
+#registerForm .form-group {padding-bottom: 50px;}
+

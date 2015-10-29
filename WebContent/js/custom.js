@@ -5,6 +5,8 @@ function loginProcess() {
 		$("#btnRatings").removeClass("hide");
 		$("#btnLogOut").removeClass("hide");
 		$("#btnUsers").removeClass("hide");
+		$("#btnRegister").addClass("hide");
+		$("#btnMovieWithRatings").removeClass("hide");
 		
 
 	} else {
@@ -12,7 +14,8 @@ function loginProcess() {
 		$("#loginForm").removeClass("hide");
 		$("#btnRatings").addClass("hide");
 		$("#btnUsers").addClass("hide");
-		
+		$("#btnRegister").removeClass("hide");
+		$("#btnMovieWithRatings").addClass("hide");
 	}
 }
 
@@ -27,6 +30,11 @@ function checkIfLoggedIn()
 function logout() {
 	localStorage.removeItem("token");
 	loginProcess();
+}
+
+function register()
+{
+	window.location.replace("/Notflix/register.html");
 }
 
 // Inloggen en token ophalen en opslaan in Localstorage
