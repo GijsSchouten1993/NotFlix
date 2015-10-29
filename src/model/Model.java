@@ -22,8 +22,10 @@ public class Model {
 	private ArrayList<Rating> ratings = new ArrayList<>();
 	private ArrayList<Token> tokens = new ArrayList<>();
 	public InputStream is;
+
 	public Model() {
-		Movie mov = new Movie("tt2379713", "Spectre", new Date(), 120, "Blake fjf", "A cryptic message from Bond's past sends him on a trail to uncover a sinister organization. While M battles political forces to keep the secret service alive, Bond peels back the layers of deceit to reveal the terrible truth behind SPECTRE.");
+		Movie mov = new Movie("tt2379713", "Spectre", new Date(), 120, "Blake fjf",
+				"A cryptic message from Bond's past sends him on a trail to uncover a sinister organization. While M battles political forces to keep the secret service alive, Bond peels back the layers of deceit to reveal the terrible truth behind SPECTRE.");
 		movies.add(mov);
 
 		Movie movie2 = new Movie("tt2488496", "Star wars", new Date(), 150, "George Lucs", "Star wars Episode 9");
@@ -44,7 +46,8 @@ public class Model {
 		Movie movie7 = new Movie("tt0440963", "Bourne Ultimatum", new Date(), 120, "Blake fjf", "James bond 007");
 		movies.add(movie7);
 
-		Movie movie8 = new Movie("tt1899353", "The Raid: redemption", new Date(), 150, "George Lucs", "Star wars Episode 9");
+		Movie movie8 = new Movie("tt1899353", "The Raid: redemption", new Date(), 150, "George Lucs",
+				"Star wars Episode 9");
 		movies.add(movie8);
 
 		Movie movie9 = new Movie("tt2265171", "The raid 2", new Date(), 140, "Waschowski siblings", "Depp owns");
@@ -53,7 +56,8 @@ public class Model {
 		Movie movie10 = new Movie("tt0320691", "Underworld", new Date(), 120, "Blake fjf", "James bond 007");
 		movies.add(movie10);
 
-		Movie movie11 = new Movie("tt0317705", "The Incredibles", new Date(), 150, "George Lucs", "Star wars Episode 9");
+		Movie movie11 = new Movie("tt0317705", "The Incredibles", new Date(), 150, "George Lucs",
+				"Star wars Episode 9");
 		movies.add(movie11);
 
 		Movie movie12 = new Movie("tt1502712", "Fantastic four", new Date(), 140, "Waschowski siblings", "Depp owns");
@@ -66,7 +70,7 @@ public class Model {
 				"Star wars Episode 9");
 		movies.add(movie14);
 
-		Movie movie15 = new Movie("", "The Rock", new Date(), 140, "Waschowski siblings", "Depp owns");
+		Movie movie15 = new Movie("tt0117500", "The Rock", new Date(), 140, "Waschowski siblings", "Depp owns");
 		movies.add(movie15);
 
 		// Gijs gebruiker
@@ -77,23 +81,23 @@ public class Model {
 		User usr2 = new User("Uncu", "Alexander", "test2", "test2");
 		users.add(usr2);
 
-		Rating rat = new Rating(1, 1, 4);
+		Rating rat = new Rating(1, 9, 4);
 		ratings.add(rat);
 
 		Rating rat2 = new Rating(1, 2, 1);
 		ratings.add(rat2);
-
-		Rating rat3 = new Rating(2, 1, 2);
-		ratings.add(rat3);
-
-		Rating rat4 = new Rating(2, 2, 2);
-		ratings.add(rat4);
-
+		
 		Rating rat5 = new Rating(1, 7, 4);
 		ratings.add(rat5);
-
+		
 		Rating rat6 = new Rating(1, 12, 3);
 		ratings.add(rat6);
+
+		Rating rat9 = new Rating(1, 1, 4);
+		ratings.add(rat9);
+
+		Rating rat10 = new Rating(1, 8, 1);
+		ratings.add(rat10);
 
 		Rating rat7 = new Rating(2, 9, 2.5);
 		ratings.add(rat7);
@@ -101,11 +105,11 @@ public class Model {
 		Rating rat8 = new Rating(2, 15, 4.5);
 		ratings.add(rat8);
 
-		Rating rat9 = new Rating(1, 1, 4);
-		ratings.add(rat9);
+		Rating rat3 = new Rating(2, 1, 2);
+		ratings.add(rat3);
 
-		Rating rat10 = new Rating(1, 7, 1);
-		ratings.add(rat10);
+		Rating rat4 = new Rating(2, 2, 2);
+		ratings.add(rat4);
 
 		Rating rat11 = new Rating(2, 14, 2);
 		ratings.add(rat11);
@@ -160,7 +164,10 @@ public class Model {
 				double average = total / ratingsPerMovie.size();
 				// rond het getal naar boven af naar een heel of half getal.
 				average = Math.round(average * 2) / 2.0f;
-				averages.add(new MovieAverage(movie.getNumberInternal(), average));
+				MovieAverage movieAverage = new MovieAverage(movie.getNumberInternal(), average);
+				// Haal het imdbnummer op voor elke rating obv het movieId
+				movieAverage.setNumberIMDB(getImdbNumberForMovieId(movieAverage.getMovieId()));
+				averages.add(movieAverage);
 			}
 
 		}
@@ -333,10 +340,17 @@ public class Model {
 		ArrayList<Rating> ratingsToReturn = new ArrayList<Rating>();
 		for (Rating rat : this.ratings) {
 			if (rat.getUserId() == _userId) {
+				// Haal het imdbnummer op voor elke rating obv het movieId
+				rat.setNumberIMDB(getImdbNumberForMovieId(rat.getMovieId()));
 				ratingsToReturn.add(rat);
 			}
 		}
 		return ratingsToReturn;
+	}
+
+	private String getImdbNumberForMovieId(int movieId) {
+		Movie mov = getMovieById(movieId);
+		return mov.getNumberIMDB();
 	}
 
 	/**
@@ -437,7 +451,7 @@ public class Model {
 		}
 		return null;
 	}
-	
+
 	/**
 	 * kijkt of een token al bestaat
 	 * 
@@ -454,7 +468,6 @@ public class Model {
 		return null;
 	}
 
-
 	/**
 	 * Maakt een nieuwe token aan voor een gebruiker.
 	 * 
@@ -470,8 +483,7 @@ public class Model {
 			throw new Exception("Ongeldige login");
 		}
 		Token tokFromList = this.CheckIfTokenExistsInList(user.getUserId());
-		if(tokFromList != null)
-		{
+		if (tokFromList != null) {
 			return tokFromList;
 		}
 		String tokenValue = GenerateNewTokenStringForUser();

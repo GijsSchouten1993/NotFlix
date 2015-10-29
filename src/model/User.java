@@ -8,35 +8,35 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 /**
  * This class allows you to create a user
+ * 
  * @author Alec
  *
  */
 @XmlRootElement
 public class User {
-	
+
 	private static int increment = 1;
 	private int userId;
 	private String lastName;
-	private String preposition; //tussenvoegsel
+	private String preposition; // tussenvoegsel
 	private String firstName;
 	private String nickname;
 	private String password;
 
-	
 	public User() {
-		
+
 	}
-	
+
 	public User(String lastName, String preposition, String firstName, String nickname, String password) {
 		this.lastName = lastName;
 		this.preposition = preposition;
 		this.firstName = firstName;
 		this.nickname = nickname;
 		this.password = password;
-		
+
 		this.userId = increment++;
 	}
-	
+
 	public User(String lastName, String firstName, String nickname, String password) {
 		this(lastName, "", firstName, nickname, password);
 	}
@@ -49,7 +49,8 @@ public class User {
 	}
 
 	/**
-	 * @param lastName the lastName to set
+	 * @param lastName
+	 *            the lastName to set
 	 */
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
@@ -63,7 +64,8 @@ public class User {
 	}
 
 	/**
-	 * @param preposition the preposition to set
+	 * @param preposition
+	 *            the preposition to set
 	 */
 	public void setPreposition(String preposition) {
 		this.preposition = preposition;
@@ -77,7 +79,8 @@ public class User {
 	}
 
 	/**
-	 * @param firstName the firstName to set
+	 * @param firstName
+	 *            the firstName to set
 	 */
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
@@ -91,7 +94,8 @@ public class User {
 	}
 
 	/**
-	 * @param nickname the nickname to set
+	 * @param nickname
+	 *            the nickname to set
 	 */
 	public void setNickname(String nickname) {
 		this.nickname = nickname;
@@ -100,14 +104,13 @@ public class User {
 	/**
 	 * @return the password
 	 */
-	@XmlTransient
-	@JsonIgnore
 	public String getPassword() {
-		return password;
+		return this.password;
 	}
 
 	/**
-	 * @param password the password to set
+	 * @param password
+	 *            the password to set
 	 */
 	public void setPassword(String password) {
 		this.password = password;
@@ -121,10 +124,11 @@ public class User {
 	}
 
 	/**
-	 * @param userId the userId to set
+	 * @param userId
+	 *            the userId to set
 	 */
 	public void setUserId() {
 		this.userId = increment++;
 	}
-	
+
 }

@@ -76,7 +76,6 @@ public class MovieResource {
 		try {
 			//haal het model op en verkrijg movies op basis van titel
 			Model model = (Model) context.getAttribute("model");
-			model.CheckAuthorization(token, model);
 			return model.getMoviesByTitle(title);
 		} catch (Exception e) {
 			throw new ResponseWithException(e.getMessage(),Response.Status.BAD_REQUEST);
@@ -95,7 +94,6 @@ public class MovieResource {
 		try{
 			//haal het model op en verkrijg all ratings van een movie
 			Model model = (Model) context.getAttribute("model");
-			model.CheckAuthorization(token, model);
 			return model.getAverageRating();
 		} catch (Exception ex) {
 			throw new ResponseWithException(ex.getMessage(),Response.Status.BAD_REQUEST);

@@ -7,6 +7,7 @@ public class MovieAverage {
 
 	private int movieId;
 	double rating;
+	private String numberIMDB;
 	
 	public MovieAverage() {
 		
@@ -34,6 +35,16 @@ public class MovieAverage {
 	 */
 	public double getRating() {
 		return rating;
+	}
+	
+	/**
+	 * @return imbdnumber
+	 */
+	public String getNumberIMDB() {
+		return numberIMDB;
+	}
+	public void setNumberIMDB(String numberImdb) {
+		this.numberIMDB =numberImdb;
 	}
 	
 	

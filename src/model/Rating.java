@@ -10,6 +10,7 @@ public class Rating {
 	private double stars;
 	private int userId;
 	private int movieId;
+	private String numberIMDB;
 
 	public Rating() {
 		
@@ -51,5 +52,14 @@ public class Rating {
 
 	public void setRatingId() {
 		this.ratingId = increment++;
+	}
+	/**
+	 * @return imbdnumber
+	 */
+	public String getNumberIMDB() {
+		return numberIMDB;
+	}
+	public void setNumberIMDB(String numberImdb) {
+		this.numberIMDB =numberImdb;
 	}
 }

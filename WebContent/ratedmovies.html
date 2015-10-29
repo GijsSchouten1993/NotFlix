@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Average ratings</title>
+<link rel="stylesheet" href="./css/bootstrap.css">
+<link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="/Notflix">Notflix</a>
+			</div>
+
+			<div class="collapse navbar-collapse"
+				id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="/Notflix">Home</a></li>
+					<li><a href="#" id="btnMovieWithRatings">Rated movies</a></li>
+					<li><a href="ratings.html" id="btnRatings" class="hide">Own ratings</a></li>
+					<li><a href="users.html" id="btnUsers" class="hide">Users</a></li>
+				</ul>
+				<form class="navbar-form navbar-right" id="loginForm">
+					<div class="form-group">
+						<input type="text" class="form-control"
+							placeholder="Gebruikersnaam" id="nickname"> <input
+							type="text" class="form-control" placeholder="Wachtwoord"
+							id="password">
+					</div>
+					<button id="btnLogin" type="submit" class="btn btn-success">Inloggen</button>
+				</form>
+
+				<button id="btnLogOut" type="submit"
+					class="btn btn-danger hide navbar-right" onclick="logout();">Uitloggen</button>
+				
+			</div>
+		</div>
+	</nav>
+	
+	<div class="panel panel-default col-lg-12">
+			<div class="panel-body" id="pnlRatedMovies"></div>
+		</div>
+
+
+		<div id="images"></div>		
+		<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+		<script src="./js/bootstrap.min.js"></script>
+		<script src="./js/custom.js"></script>
+		<script src="./js/ratedmovies.js"></script>
+	
+
+</body>
+</html>

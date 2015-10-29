@@ -18,8 +18,8 @@
 				id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="/Notflix">Home</a></li>
-					<li><a href="#" id="btnMovieWithRatings">Movies</a></li>
-					<li><a href="#" id="btnRatings" class="hide">Ratings</a></li>
+					<li><a href="ratedmovies.html" id="btnMovieWithRatings">Rated movies</a></li>
+					<li><a href="ratings.html" id="btnRatings" class="hide">Own ratings</a></li>
 					<li><a href="users.html" id="btnUsers" class="hide">Users</a></li>
 				</ul>
 				<form class="navbar-form navbar-right" id="loginForm">
@@ -29,12 +29,10 @@
 							type="text" class="form-control" placeholder="Wachtwoord"
 							id="password">
 					</div>
-					<button id="btnLogin" type="submit" class="btn btn-success">Inloggen</button>
+					<button id="btnLogin" type="submit" class="btn btn-success">Inloggen</button>			
 				</form>
 				<button id="btnLogOut" type="submit"
 					class="btn btn-danger hide navbar-right" onclick="logout();">Uitloggen</button>
-					<button id="btnRegister" type="submit"
-					class="btn btn-info navbar-right" onclick="register();">Registeren</button>
 			</div>
 		</div>
 	</nav>
@@ -70,9 +68,11 @@
     <div class="form-group">
       <div class="col-lg-10 col-lg-offset-2">
         <button type="reset" class="btn btn-default">Cancel</button>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button class="btn btn-primary" type="submit">Submit</button>
       </div>
     </div>
+    <div id="messageDiv"></div>
+    
   </fieldset>
 </form>
 </div>
@@ -80,6 +80,7 @@
 	<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
 	<script src="./js/bootstrap.min.js"></script>
 	<script src="./js/custom.js"></script>
+	<script src="./js/register.js"></script>
 	<script>
 		
 

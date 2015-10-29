@@ -46,7 +46,6 @@ public class UserResource {
 
 		// Haal het model op en return de gebruiker met het juiste ID
 		Model mod = (Model) context.getAttribute("model");
-	
 		return mod.GetUserById(id);
 	}
 
